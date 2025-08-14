@@ -22,6 +22,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Hamburger menu toggle for mobile nav
+    const hamburger = document.querySelector('.nav-hamburger');
+    const mobileOverlay = document.querySelector('.nav-mobile-overlay');
+    if (hamburger && mobileOverlay) {
+        hamburger.addEventListener('click', function() {
+            mobileOverlay.classList.toggle('active');
+        });
+        // Close mobile menu when clicking outside or on a link
+        mobileOverlay.addEventListener('click', function(e) {
+            if (e.target === mobileOverlay || e.target.tagName === 'A') {
+                mobileOverlay.classList.remove('active');
+            }
+        });
+    }
+
     // Hero dots and arrows functionality
     const dots = document.querySelectorAll('.hero-dots .dot');
     let currentDot = 0;
